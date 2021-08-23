@@ -23,6 +23,7 @@ body {
   border-radius: 5px;
   background: linear-gradient(to right, #ffc, rgb(90, 209, 199));
 }
+
 .profile {
   height: 80px;
   color: #000;
@@ -44,7 +45,7 @@ button,
   transition: 0.5s;
 }
 .send {
-  background: #af0;
+  background: rgb(125, 180, 14);
 }
 .user-list {
   display: flex;
@@ -53,13 +54,16 @@ button,
 }
 
 .add input {
-  background: #000;
+  background: linear-gradient(to right, rgb(189, 250, 170), rgb(95, 201, 100));
   padding: 10px;
   font-size: 20px;
+  color: #000;
+  border-radius: 5px;
+  font-weight: bold;
   /* max-width: 180px; */
 }
 input {
-  color: #aff;
+  /* color: #aff; */
 }
 button:hover {
   cursor: pointer;
@@ -76,6 +80,7 @@ button:hover {
   cursor: pointer;
   box-shadow: 1px 5px 10px;
 }
+
 .details {
   display: flex;
   flex-direction: column;
