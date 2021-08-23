@@ -66,4 +66,7 @@ async function sendData() {
   getData();
   document.querySelector("#user_name").value = "";
   document.querySelector("#avatar").value = " ";
+  data.forEach((a) => {
+    createProfile(a);
+  });
 }
