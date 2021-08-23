@@ -25,7 +25,7 @@ function createProfile({ name, avatar, createdAt, id }) {
       <div>
       
       <button class="delete" onclick="deleteUser(${id})">Delete</button>
-      <button class="edit" onclick="EditUser(${id})">Edit</button>
+      <button class="edit" onclick="editUser(${id})">Edit</button>
       </div>
       </div>
       `;
@@ -66,7 +66,37 @@ async function sendData() {
   getData();
   document.querySelector("#user_name").value = "";
   document.querySelector("#avatar").value = " ";
-  data.forEach((a) => {
-    createProfile(a);
+  data.forEach((update) => {
+    createProfile(update);
+  });
+}
+
+async function editUser(id) {
+  send.style.display = "none";
+  name = document.querySelector("#user_name").value;
+  avatar = document.querySelector("#avatar").value;
+  date = new Date().toISOString();
+  console.log(name, avatar, date);
+  post = await fetch(
+    `https://611f26289771bf001785c71b.mockapi.io/profiles/${id}`,
+    {
+      method: "PUT",
+
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        createdAt: date,
+        name: name,
+        avatar: avatar,
+      }),
+    }
+  );
+  data = await post.json();
+  getData();
+  document.querySelector("#user_name").value = "";
+  document.querySelector("#avatar").value = " ";
+  data.forEach((update) => {
+    createProfile(update);
   });
 }
